@@ -1,20 +1,20 @@
-# Repository Presentation Plan
+# План оформления репозиториев
 
-This document keeps public-facing repository descriptions consistent, commercial, and easy to maintain.
+Этот документ помогает держать публичные описания репозиториев в едином коммерческом стиле.
 
-## Recommended Pinned Repositories
+## Рекомендуемые pinned repositories
 
-| Repository | Public position | Recommended action |
+| Репозиторий | Позиционирование | Что сделать |
 |---|---|---|
-| `AI_TRADING_BOT` | Main private case study for Python, ML, data, backend, and trading infrastructure. | Keep private until sanitized. Pin only if made public. Use the profile case study meanwhile. |
-| `DataScientist_at_SENATOROVAI` | Data Science learning portfolio. | Add a clean README with course structure, notebooks, skills, and selected outputs. |
-| `Data-Science-For-Beginners-from-scratch-course` | Forked learning material. | Do not lead with it unless custom work is clearly separated. |
-| `Outsourcing_-26` | Potential commercial/company-site or outsourcing portfolio workspace. | Add README before pinning. Rename if it becomes public-facing. |
-| `python-open-source-standards-course` | Forked Python quality and open-source standards course. | Use as supporting repo only. |
+| `AI_TRADING_BOT` | Главный private case study по Python, ML, data engineering, backend и trading infrastructure. | Держать private до очистки и стабилизации публичного README. Пока использовать профильный case study. |
+| `DataScientist_at_SENATOROVAI` | Учебное портфолио по Data Science. | Добавить чистый README: структура курса, notebooks, навыки, выбранные результаты. |
+| `Data-Science-For-Beginners-from-scratch-course` | Forked learning material. | Не делать главным проектом, если нет явно выделенной собственной работы. |
+| `Outsourcing_-26` | Потенциальное workspace для коммерческого портфолио или outsourcing материалов. | Добавить README перед pin. Переименовать, если репозиторий станет публичной витриной. |
+| `python-open-source-standards-course` | Практика Python quality и open-source standards. | Использовать как supporting repo, не как главный коммерческий кейс. |
 
-## GitHub Repository Descriptions
+## Описания для GitHub
 
-Use concise descriptions that say what the repository is and why it matters.
+Описание должно коротко отвечать: что это, какую задачу закрывает и какой стек показывает.
 
 ### AI_TRADING_BOT
 
@@ -64,16 +64,17 @@ Suggested topics:
 python, open-source, pep8, testing, linting
 ```
 
-## README Rule
+## Правило хорошего README
 
-Every repository should answer these questions in the first screen:
+Первый экран каждого репозитория должен отвечать на вопросы:
 
-- What problem does it solve?
-- Who is it for?
-- What is implemented already?
-- How can someone run or inspect it?
-- What stack does it demonstrate?
+- какую проблему решает проект;
+- для кого он сделан;
+- что уже реализовано;
+- как его запустить или проверить;
+- какой стек и инженерный уровень он демонстрирует.
 
-## Pinning Rule
+## Правило pinning
 
-Pin no more than six repositories. Avoid pinning empty, unclear, fork-only, or work-in-progress repositories unless their README explains the purpose clearly.
+Закреплять стоит не больше шести репозиториев. Не стоит закреплять пустые, непонятные, fork-only или work-in-progress репозитории, если README не объясняет их ценность.
+

@@ -1,98 +1,98 @@
-# AI Trading Bot Case Study
+# Кейс: AI Trading Bot
 
-Adaptive ML-first trading infrastructure for research, dataset preparation, offline model training, and future execution workflows.
+Adaptive ML-first trading infrastructure для research, подготовки датасетов, offline model training и будущих execution workflows.
 
-> This is an engineering case study, not investment advice and not a promise of trading performance.
+> Это инженерный кейс, а не инвестиционная рекомендация и не обещание торговой доходности.
 
-## Context
+## Контекст
 
-Trading ML projects fail quickly when data, features, labels, experiments, and execution assumptions are mixed together in notebooks or one-off scripts. The goal of this project is to build a controlled research system where every stage is explicit, testable, and repeatable.
+ML-проекты в трейдинге быстро ломаются, если данные, признаки, метки, эксперименты и execution assumptions смешаны в notebooks или одноразовых скриптах. Цель проекта - построить контролируемую research-систему, где каждый этап явный, тестируемый и воспроизводимый.
 
-## Business Goal
+## Бизнес-цель
 
-Create a maintainable platform for strategy research on MOEX/Finam workflows:
+Создать поддерживаемую платформу для strategy research под MOEX/Finam workflows:
 
-- ingest and normalize market data;
-- build feature snapshots with point-in-time correctness;
-- produce reproducible training datasets;
-- run offline model training with validation artifacts;
-- prepare the system for safe dry-run and paper-trading stages.
+- загружать и нормализовать рыночные данные;
+- строить feature snapshots с point-in-time корректностью;
+- собирать воспроизводимые training datasets;
+- запускать offline model training с validation artifacts;
+- подготовить систему к безопасным dry-run и paper-trading этапам.
 
-## Engineering Scope
+## Инженерный контур
 
-The repository is structured as a Python application with clear modules:
+Репозиторий организован как Python-приложение с понятными модулями:
 
 ```text
 src/trading_bot/
-  api/          FastAPI service and health checks
-  broker/       Finam client boundary
+  api/          FastAPI service и health checks
+  broker/       граница Finam client
   common/       config, logging, database helpers
   data/         ingestion, MOEX datasets, futures chains, queue workers
   execution/    execution service boundary
   features/     feature engine, artifacts, feature service
-  labeling/     triple-barrier labels and trade simulation
+  labeling/     triple-barrier labels и trade simulation
   ml/           datasets, offline training, validation, backtesting, registry
-  storage/      repositories and migrations
-tests/          focused tests across the pipeline
-docs/           architecture, roadmap, pipeline and ML documentation
+  storage/      repositories и migrations
+tests/          focused tests по всему pipeline
+docs/           architecture, roadmap, pipeline и ML documentation
 ```
 
-## Technical Highlights
+## Технические акценты
 
 - Python 3.12 project managed with `uv`.
-- FastAPI service with live and readiness health checks.
-- PostgreSQL storage with migrations and repository boundaries.
-- Redis and RabbitMQ for local infrastructure and ingestion queues.
+- FastAPI service с live и readiness health checks.
+- PostgreSQL storage с migrations и repository boundaries.
+- Redis и RabbitMQ для local infrastructure и ingestion queues.
 - MOEX/AlgoPack-style historical ingestion workflows.
-- Feature layer with schema hashes, shifted features, source timestamp tracking, and leakage checks.
-- Dataset artifact builder with tensors, trading targets, audit metadata, reports, and sharded mode.
-- Offline training CLI with PyTorch, metrics, experiment manifests, validation reports, registry entries, and notebook reports.
-- Optional CatBoost and LightGBM baselines behind explicit flags.
-- Test suite covering data ingestion, storage, features, labels, datasets, training, validation, backtesting, and API health.
+- Feature layer со schema hashes, shifted features, source timestamp tracking и leakage checks.
+- Dataset artifact builder с tensors, trading targets, audit metadata, reports и sharded mode.
+- Offline training CLI с PyTorch, metrics, experiment manifests, validation reports, registry entries и notebook reports.
+- Optional CatBoost и LightGBM baselines за explicit flags.
+- Test suite для data ingestion, storage, features, labels, datasets, training, validation, backtesting и API health.
 - Quality tooling: pytest, mypy strict mode, Ruff, coverage, pre-commit, Bandit, pip-audit, MkDocs.
 
 ## Dataset Pipeline
 
-The DB dataset pipeline builds a reproducible `TrainingDataset` artifact from PostgreSQL-backed market data.
+DB dataset pipeline собирает воспроизводимый `TrainingDataset` artifact из PostgreSQL-backed market data.
 
-The artifact contains:
+Artifact содержит:
 
-- feature tensors from versioned feature schemas;
-- action labels such as `FLAT`, `LONG`, and `SHORT`;
-- trading targets such as success, expected R, result R, utility, MAE, and MFE;
-- sample IDs, timestamps, regimes, and chronological split metadata.
+- feature tensors из versioned feature schemas;
+- action labels: `FLAT`, `LONG`, `SHORT`;
+- trading targets: success, expected R, result R, utility, MAE, MFE;
+- sample IDs, timestamps, regimes и chronological split metadata.
 
-The sharded dataset mode is designed for multi-year ranges on limited workstation memory. It writes multiple dataset shards plus a manifest and allows chronological training without materializing the whole dataset at once.
+Sharded dataset mode рассчитан на multi-year ranges при ограниченной памяти рабочей станции. Он записывает несколько dataset shards и общий manifest, позволяя обучаться в хронологическом порядке без загрузки всего датасета в RAM.
 
-## Validation and Risk Controls
+## Валидация и risk controls
 
-The project treats model training as a gated workflow:
+Проект рассматривает обучение модели как gated workflow:
 
-- dataset preflight blocks empty or invalid train/validation/test splits;
-- timestamps must remain chronological;
-- sample IDs must not leak across splits;
-- NaN and Inf values are rejected;
-- labels and trading targets are validated before training;
-- feature scalers are fitted on the train split only;
-- validation and test data stay chronological.
+- dataset preflight блокирует пустые или некорректные train/validation/test splits;
+- timestamps должны оставаться хронологическими;
+- sample IDs не должны пересекаться между splits;
+- NaN и Inf отклоняются до обучения;
+- labels и trading targets валидируются перед training;
+- feature scalers fit only on train split;
+- validation и test data остаются chronological.
 
-This design is intentionally conservative because trading systems need auditability before automation.
+Такой дизайн намеренно консервативен, потому что trading systems требуют auditability до любой автоматизации.
 
-## Commercial Value
+## Коммерческая ценность
 
-The project demonstrates the ability to:
+Кейс показывает способность:
 
-- translate an uncertain research idea into a structured software system;
-- separate data engineering, ML, API, storage, and execution boundaries;
-- build repeatable pipelines instead of fragile manual workflows;
-- design safety gates for high-risk domains;
-- maintain a real Python codebase with tests, docs, and operational commands.
+- перевести неопределенную research-идею в структурированную software system;
+- разделить data engineering, ML, API, storage и execution boundaries;
+- строить repeatable pipelines вместо хрупких ручных workflows;
+- проектировать safety gates для high-risk domains;
+- поддерживать Python-кодовую базу с tests, docs и operational commands.
 
-## Stack
+## Стек
 
 Python, FastAPI, PostgreSQL, SQLAlchemy, Alembic, Redis, RabbitMQ, Docker, pandas, NumPy, Polars, PyArrow, PyTorch, scikit-learn, CatBoost, LightGBM, MLflow, Optuna, Evidently, pytest, mypy, Ruff, MkDocs.
 
-## Status
+## Статус
 
-Private engineering project. Public profile contains the case study and technical summary; source code visibility can be changed separately when the repository is ready for public review.
+Private engineering project. Публичный профиль содержит case study и техническое резюме; видимость исходного кода можно изменить отдельно, когда репозиторий будет готов к публичному review.
 

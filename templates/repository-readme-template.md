@@ -1,6 +1,6 @@
-# Project Name
+# Название проекта
 
-One-sentence commercial description: what the project does, who it is for, and why it exists.
+Одно коммерческое предложение: что делает проект, для кого он нужен и какую проблему решает.
 
 <p>
   <img src="https://img.shields.io/badge/Python-3.12-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python" />
@@ -9,22 +9,22 @@ One-sentence commercial description: what the project does, who it is for, and w
   <img src="https://img.shields.io/badge/License-MIT-blue?style=flat-square" alt="License" />
 </p>
 
-## Overview
+## О проекте
 
-Explain the project in 3-5 lines:
+Опиши проект в 3-5 строк:
 
-- business or user problem;
-- technical solution;
-- current project state;
-- what the repository demonstrates.
+- бизнесовая или пользовательская проблема;
+- техническое решение;
+- текущий статус проекта;
+- какой стек и инженерные навыки демонстрирует репозиторий.
 
-## Features
+## Возможности
 
-- Feature 1.
-- Feature 2.
-- Feature 3.
+- Возможность 1.
+- Возможность 2.
+- Возможность 3.
 
-## Architecture
+## Архитектура
 
 ```text
 src/
@@ -34,7 +34,7 @@ tests/
 docs/
 ```
 
-## Tech Stack
+## Стек
 
 - Python
 - FastAPI
@@ -42,7 +42,7 @@ docs/
 - Docker
 - pytest
 
-## Quick Start
+## Быстрый старт
 
 ```bash
 git clone https://github.com/YurGusev/REPOSITORY.git
@@ -52,23 +52,23 @@ pip install -r requirements.txt
 pytest
 ```
 
-## Usage
+## Использование
 
 ```bash
 python -m package.command --config config.yaml
 ```
 
-## Case Study
+## Кейс
 
-**Problem:** describe the practical problem.
+**Проблема:** какая практическая задача была до проекта.
 
-**Solution:** describe what was implemented.
+**Решение:** что было реализовано технически.
 
-**Result:** describe the engineering or business improvement. Use numbers if available.
+**Результат:** что улучшилось. Если есть цифры, добавить цифры.
 
-**Stack:** Python, SQL, Docker, pytest.
+**Стек:** Python, SQL, Docker, pytest.
 
-## Quality
+## Качество
 
 - Tests: `pytest`
 - Formatting: `ruff format`
@@ -77,10 +77,10 @@ python -m package.command --config config.yaml
 
 ## Roadmap
 
-- [ ] Add installation guide.
-- [ ] Add examples.
-- [ ] Add CI.
-- [ ] Add screenshots or diagrams.
+- [ ] Добавить installation guide.
+- [ ] Добавить examples.
+- [ ] Добавить CI.
+- [ ] Добавить screenshots или diagrams.
 
 ## License
 

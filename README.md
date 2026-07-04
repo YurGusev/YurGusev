@@ -1,8 +1,8 @@
-<h1 align="center">Yura Gusev</h1>
+<h1 align="center">Юрий Гусев</h1>
 
 <p align="center">
-  Python / ML Engineer focused on data pipelines, trading research infrastructure,
-  backend automation, and production-minded developer tooling.
+  Python / ML Engineer: data pipelines, trading research infrastructure,
+  backend automation и production-подход к инженерным задачам.
 </p>
 
 <p align="center">
@@ -19,22 +19,24 @@
 
 ---
 
-## About
+## Обо мне
 
-I build practical software around data, machine learning, and automation. My work is centered on reliable Python systems: market data ingestion, dataset preparation, feature engineering, offline model training, APIs, tests, and documentation that engineers can actually use.
+Я занимаюсь практической разработкой на стыке Python, данных, машинного обучения и автоматизации. Основной фокус - надежные инженерные системы: загрузка и нормализация данных, подготовка датасетов, feature engineering, offline training, API, тесты и документация, с которой можно работать в команде.
 
-Current focus:
+Сейчас развиваю направление ML-first trading infrastructure: пайплайны рыночных данных, воспроизводимые обучающие выборки, offline-обучение моделей, валидация, backend-сервисы и подготовка к безопасным dry-run / paper-trading сценариям.
 
-- ML-first trading research infrastructure for MOEX/Finam workflows.
-- Reproducible dataset and feature pipelines for offline training.
-- Backend services with clear boundaries, typed configuration, migrations, and health checks.
-- Engineering discipline around tests, linters, type checking, CI-ready structure, and technical documentation.
+Что для меня важно в разработке:
 
-I am also studying Data Science at SENATOROVAI and use GitHub as a portfolio for engineering practice, research notes, and project work.
+- понятные границы между data engineering, ML, backend и execution-логикой;
+- воспроизводимые пайплайны вместо разрозненных ручных скриптов;
+- тесты, типизация, линтеры, миграции и документация как часть продукта;
+- осторожный подход к рискованным доменам: preflight-gates, audit metadata, dry-run, validation first.
+
+Также изучаю Data Science в SENATOROVAI и использую GitHub как портфолио инженерной практики, исследовательских заметок и проектной работы.
 
 ---
 
-## Tech Stack
+## Стек
 
 <p>
   <img src="https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
@@ -57,46 +59,48 @@ I am also studying Data Science at SENATOROVAI and use GitHub as a portfolio for
 
 ---
 
-## Selected Work
+## Избранные проекты
 
-| Project | Scope | Stack |
+| Проект | Что показывает | Стек |
 |---|---|---|
-| [AI Trading Bot](portfolio/ai-trading-bot.md) | Private research and engineering project for MOEX/Finam trading infrastructure: ingestion, features, dataset artifacts, offline training, validation, and API services. | Python, FastAPI, PostgreSQL, Redis, RabbitMQ, PyTorch, pandas |
-| [Data Science Course Work](https://github.com/YurGusev/DataScientist_at_SENATOROVAI) | Learning portfolio and structured Data Science practice. | Python, notebooks, data analysis |
-| [Data Science From Scratch](https://github.com/YurGusev/Data-Science-For-Beginners-from-scratch-course) | Forked educational repository used for foundational DS practice and exercises. | Python |
+| [AI Trading Bot](portfolio/ai-trading-bot.md) | Private engineering project для trading research: ingestion, feature pipelines, dataset artifacts, offline training, validation и backend API. | Python, FastAPI, PostgreSQL, Redis, RabbitMQ, PyTorch, pandas |
+| [DataScientist_at_SENATOROVAI](https://github.com/YurGusev/DataScientist_at_SENATOROVAI) | Учебное портфолио по Data Science: Python, анализ данных, ML-практика и структурная работа с материалами. | Python, notebooks, data analysis |
+| [Data Science From Scratch](https://github.com/YurGusev/Data-Science-For-Beginners-from-scratch-course) | Учебный репозиторий для закрепления базовых навыков Data Science и Python. | Python |
 
-Most production-style work is summarized as case studies because some repositories are private or client-facing.
-
----
-
-## Case Study: AI Trading Bot
-
-**Business goal:** create a maintainable foundation for trading research and future automation on the Russian market.
-
-**Engineering challenge:** trading ML work requires clean historical data, reproducible datasets, leakage-aware features, model validation, and operational services before live execution can be considered.
-
-**Solution delivered:**
-
-- Market data ingestion for MOEX/AlgoPack-style workflows.
-- PostgreSQL-backed storage for raw and normalized market data.
-- Feature snapshots with schema hashing and no-leakage audit metadata.
-- Dataset artifact pipeline for offline ML training, including sharded datasets for multi-year ranges.
-- PyTorch offline training CLI with experiment manifests, metrics, registry metadata, and report artifacts.
-- FastAPI health endpoints and Docker-based local infrastructure.
-- Test suite around data, features, labels, model training, backtesting, validation, and API health.
-
-**Impact:** the project turns trading model research from ad hoc scripts into a reproducible engineering workflow with explicit data lineage, repeatable training commands, and safety gates before model promotion.
-
-[Read the full case study](portfolio/ai-trading-bot.md)
+Часть production-style работы оформлена в виде кейсов, потому что некоторые репозитории приватные или связаны с коммерческим контекстом.
 
 ---
 
-## Engineering Principles
+## Кейс: AI Trading Bot
 
-- I document design decisions and operational commands, not only code.
-- I prefer reproducible pipelines over manual notebooks for critical workflows.
-- I keep risk-heavy systems behind dry-run, paper, validation, and preflight gates.
-- I treat tests, type checks, linting, migrations, and docs as part of the product.
+**Цель:** создать поддерживаемую инженерную основу для trading research и будущей автоматизации на российском рынке.
+
+**Проблема:** ML-задачи в трейдинге быстро становятся хаотичными без чистых исторических данных, воспроизводимых датасетов, leakage-aware признаков, валидации моделей и операционных safety-gates.
+
+**Что реализовано:**
+
+- загрузка рыночных данных для MOEX/AlgoPack-style workflows;
+- PostgreSQL-хранилище для raw и normalized market data;
+- feature snapshots со schema hash и no-leakage audit metadata;
+- pipeline сборки dataset artifacts для offline ML;
+- sharded datasets для многолетних диапазонов и ограниченной памяти рабочей станции;
+- PyTorch offline training CLI с experiment manifests, metrics, registry metadata и отчетными артефактами;
+- FastAPI health endpoints и Docker-based local infrastructure;
+- тесты вокруг data ingestion, storage, features, labels, datasets, training, validation, backtesting и API health.
+
+**Результат:** проект переводит trading model research из набора ad hoc scripts в воспроизводимый инженерный workflow с явной lineage-информацией, повторяемыми командами обучения и safety gates перед model promotion.
+
+[Читать полный кейс](portfolio/ai-trading-bot.md)
+
+---
+
+## Инженерные принципы
+
+- Документировать решения и операционные команды, а не только код.
+- Строить воспроизводимые пайплайны вместо ручных notebook-only процессов.
+- Разделять исследовательскую, backend, storage, ML и execution-логику.
+- Не пропускать рискованные изменения без dry-run, validation, tests и preflight checks.
+- Поддерживать проект так, чтобы его мог быстро понять другой разработчик.
 
 ---
 
@@ -117,11 +121,9 @@ Most production-style work is summarized as case studies because some repositori
 
 ---
 
-## Portfolio Maintenance
+## Материалы портфолио
 
-This profile is intentionally concise. Supporting materials live here:
-
-- [AI Trading Bot case study](portfolio/ai-trading-bot.md)
-- [Repository presentation plan](portfolio/repository-descriptions.md)
-- [Reusable repository README template](templates/repository-readme-template.md)
+- [Кейс AI Trading Bot](portfolio/ai-trading-bot.md)
+- [План оформления репозиториев](portfolio/repository-descriptions.md)
+- [Шаблон README для репозитория](templates/repository-readme-template.md)
 
