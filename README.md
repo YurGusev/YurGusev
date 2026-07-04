@@ -66,10 +66,8 @@
 | Проект | Что показывает | Стек |
 |---|---|---|
 | [AI Trading Bot](portfolio/ai-trading-bot.md) | Private engineering project для trading research: ingestion, feature pipelines, dataset artifacts, offline training, validation и backend API. | Python, FastAPI, PostgreSQL, Redis, RabbitMQ, PyTorch, pandas |
-| [DataScientist_at_SENATOROVAI](https://github.com/YurGusev/DataScientist_at_SENATOROVAI) | Учебное портфолио по Data Science: Python, анализ данных, ML-практика и структурная работа с материалами. | Python, notebooks, data analysis |
-| [Data Science From Scratch](https://github.com/YurGusev/Data-Science-For-Beginners-from-scratch-course) | Учебный репозиторий для закрепления базовых навыков Data Science и Python. | Python |
 
-Часть production-style работы оформлена в виде кейсов, потому что некоторые репозитории приватные или связаны с коммерческим контекстом.
+Production-style работа оформлена в виде кейсов, потому что часть репозиториев приватная или связана с коммерческим контекстом.
 
 ---
 
