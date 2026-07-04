@@ -1,3 +1,5 @@
+<!-- GitHub profile README for YurGusev -->
+
 <h1 align="center">Юрий Гусев</h1>
 
 <p align="center">
@@ -126,4 +128,3 @@
 - [Кейс AI Trading Bot](portfolio/ai-trading-bot.md)
 - [План оформления репозиториев](portfolio/repository-descriptions.md)
 - [Шаблон README для репозитория](templates/repository-readme-template.md)
-
